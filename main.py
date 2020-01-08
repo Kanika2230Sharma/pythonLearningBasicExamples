@@ -316,12 +316,6 @@
 
 #Exercise To check whether two input strings are anagram or not
 
-def anagramCheck(string1,string2):
-  if string1.sort() == string2.sort():
-    return True
-   
-string1 = input('Enter two strings to check for anagram: String1: ')
-string2 = input('String2: ')
-print(anagramCheck(string1,string2))
+
 
 
