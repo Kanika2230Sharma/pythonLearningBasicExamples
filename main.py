@@ -205,5 +205,123 @@
 # my_List = [(2,3),(10,-1),(2,0),(1,5)]
 # my_List.sort(key = lambda i:i[1])
 # print(my_List)
+
+#LIST,set,DICTIONARY COMprehension exercise
+# some_List = ['a','b','c','c','d','e','e','e']
+# duplicate_List = {item for item in some_List if some_List.count(item) > 1} 
+# print(list(duplicate_List))
+
+#DECORATORS
+#performance decorator.
+# from time import time
+# def performance(fn):
+#   def wrapper(*args, **kwargs):
+#     t1 = time()
+#     result = fn(*args, **kwargs)
+#     t2 = time()
+#     print(f'took {t2-t1}')
+#     return result
+#   return wrapper
+
+# @performance
+# def long_time():
+#     for i in range(10000):
+#         i*5
+
+# long_time()
+
+# Create an @authenticated decorator that only allows the function to run is user1 has 'valid' set to True:
+# user1 = {
+#     'name': 'Sorna',
+#     'valid': True #changing this will either run or not run the message_friends function.
+# }
+
+# def authenticated(fn):
+#   def wrapper(x): #better way to use *args and **kwargs
+#     if x['valid'] == True:
+#       return fn(x)
+#   return wrapper
+
+# @authenticated
+# def message_friends(user):
+#     print('message has been sent')
+
+# message_friends(user1)
+
+##GENERATORS
+#FIBONACCI series
+ #new learning to print first instead of third
+# def febonacci_gen(num):
+#   first = 0
+#   second = 1
   
+#   for i in range(num):
+#     yield first 
+#     temp = first   #can be done like first,second = second, first + second
+#     first = second
+#     second = temp + second
+
+# for i in febonacci_gen(5):
+#   print(i)
+
+#Exercise Questions Day 1
+#Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5, between 2000 and 3200 (both included).The numbers obtained should be printed in a comma-separated sequence on a single line.
+
+# for item in range(2000,3201):
+#   if item % 7 == 0 and item % 5 != 0:
+#     print(item, end = ',')
+# print("\b")   # this will cause the cursor to break from existing line and come to new line
+
+#Write a program which can compute the factorial of a given numbers.The results should be printed in a comma-separated sequence on a single line.Suppose the following input is supplied to the program: 8 Then, the output should be:40320
+
+# def factorial(num):
+#   fact = 1
+#   while(num):
+#     fact = fact * num
+#     num = num-1
+#   return fact
+
+# number = int(input('factorial of which number need to be calculate '))
+# print(factorial(number), end = ',')
+
+# #Using While Loop
+# n = int(raw_input())
+#  #input() function takes input as string type
+#                      #int() converts it to integer type
+# fact = 1
+# i = 1
+# while i <= n:
+#     fact = fact * i;
+#     i = i + 1
+# print(fact)
+# #Using For Loop
+# n = int(input()) 
+# #input() function takes input as string type
+# #int() converts it to integer type
+# fact = 1
+# for i in range(1,n+1):
+#     fact = fact * i
+# print(fact)
+# #Using Lambda Function
+
+# n = int(input())
+# def shortFact(x): return 1 if x <= 1 else x*shortFact(x-1)
+# print(shortFact(n))
+
+# With a given integral number n, write a program to generate a dictionary that contains (i, i x i) such that is an integral number between 1 and n (both included). and then the program should print the dictionary.Suppose the following input is supplied to the program: 8
+
+# Then, the output should be:
+
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
+
+#Exercise To check whether two input strings are anagram or not
+
+def anagramCheck(string1,string2):
+  if string1.sort() == string2.sort():
+    return True
+   
+string1 = input('Enter two strings to check for anagram: String1: ')
+string2 = input('String2: ')
+print(anagramCheck(string1,string2))
+
 
